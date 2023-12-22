@@ -9,8 +9,11 @@ Volumes are folders on your host machine had drive which are mounted("made avail
 ![image](https://github.com/actionanand/docker_data_volume/assets/46064269/a2395d82-43aa-4b80-baa8-9308f8af31ff)
 
 
-1. Volumes — Anonymous Volume and Named Volume
-2. Bind Mounts
+1. **Volumes** — **Anonymous Volume** and **Named Volume**
+2. **Bind Mounts**
+
+*  Anonymous volume, when created using container which was running with `--rm` flag, will be removed when that container is stopped.
+*  Named volume will survive even though container is stopped or removed.
    
 ## Info about `Dockerfile`
 
