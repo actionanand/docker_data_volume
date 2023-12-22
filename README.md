@@ -12,7 +12,7 @@ But even with read-write Containers, **two big problems** occur in many applicat
 
 **Problem 1** can be solved with a Docker feature called **Volumes**. **Problem 2** can be solved by using **Bind Mounts**.
 
-![image](https://github.com/actionanand/docker_data_volume/assets/46064269/a2395d82-43aa-4b80-baa8-9308f8af31ff)
+![image](https://github.com/actionanand/docker_data_volume/assets/46064269/0d0e51e8-22f3-4ea0-8653-4728a1622e8e)
 
 ## Volumes
 
