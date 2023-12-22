@@ -59,6 +59,8 @@ production (since you're container should run isolated from it's host machine).
 
 NP: Please check the **File Sharing** Option under **Resources** inside **docker desktop setting** as below to make the bind mount possible:
 
+![image](https://github.com/actionanand/docker_data_volume/assets/46064269/7cd1f4f3-5aee-4163-89f2-354f9c495718)
+
 * [⚠️Only for old docker toolbox - Mounting Docker volumes with Docker Toolbox for Windows ❗](https://headsigned.com/posts/mounting-docker-volumes-with-docker-toolbox-for-windows/)
 
 ![image](https://github.com/actionanand/docker_data_volume/assets/46064269/e61615c9-26e1-43f6-8685-36406cbe1181)
