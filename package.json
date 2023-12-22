@@ -1,10 +1,10 @@
 {
-  "name": "data-volume-example",
+  "name": "docker_data_volume",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
-  "author": "Maximilian Schwarzmüller / Academind GmbH",
-  "license": "ISC",
+  "author": "Anand Raja",
+  "license": "MIT",
   "dependencies": {
     "body-parser": "^1.19.0",
     "express": "^4.17.1"
