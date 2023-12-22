@@ -1,4 +1,4 @@
-# Managing Data and working with volume - Docker (section 2)
+# Managing Data and working with Volumes - Docker (section 2)
 
 **Images are read-only** - once they're created, they can't change (you have to rebuild them to update them).
 
@@ -57,13 +57,13 @@ that (exception: You want to be able to inspect the data written during developm
 In general, **Bind Mounts are a great tool during development** - they're not meant to be used in
 production (since you're container should run isolated from it's host machine).
 
+NP: Please check the **File Sharing** Option under **Resources** inside **docker desktop setting** as below to make the bind mount possible:
+
+* [⚠️Only for old docker toolbox - Mounting Docker volumes with Docker Toolbox for Windows ❗](https://headsigned.com/posts/mounting-docker-volumes-with-docker-toolbox-for-windows/)
+
 ![image](https://github.com/actionanand/docker_data_volume/assets/46064269/e61615c9-26e1-43f6-8685-36406cbe1181)
 
 ![image](https://github.com/actionanand/docker_data_volume/assets/46064269/02e6012b-6095-4f77-9d98-e5efeccb0cd8)
-
-![image](https://github.com/actionanand/docker_data_volume/assets/46064269/b93157ef-c49e-48cf-8bd6-2b015612b4d4)
-
-![image](https://github.com/actionanand/docker_data_volume/assets/46064269/8d47c010-b778-4246-b383-34f204bb3f2f)
 
 
 ## Key Docker Commands
@@ -94,14 +94,63 @@ docker run -d -p 3000:80 --rm --name dockerContainerName_or_ID -v volumeName:/pa
 docker run -d -p 3000:80 --rm --name docker_data_volume -v feedback:/app/feedback actionanand/docker_data_volume:tagName
 ```
 
-   
-## Info about `Dockerfile`
+### How to run bind mount in this project
+
+```shell
+docker run -d -p 3000:80 --rm --name docker_data_volume -v feedback:/app/feedback -v "D:\AR_extra\rnd\docker\docker_data_volume:/app" -v /app/node_modules actionanand/docker_data_volume
+```
+- `-v "D:\AR_extra\rnd\docker\docker_data_volume:/app"` is the bind mount (left side before ':' will be linked under '/app' inside docker). For WSL2, bind mount will be as follow: `-v "/mnt/d/AR_extra/rnd/docker/docker_data_volume:/app"`
+- `-v /app/node_modules` is the anonymous volume to make it available to work locally after bind mount as that local code won't have any node_modules
+
+```bash
+docker logs containerName_or_ID
+```
+
+### Read-Only (ro) volume
+
+```shell
+docker run -d -p 3000:80 --rm --name docker_data_volume -v feedback:/app/feedback -v "D:\AR_extra\rnd\docker\docker_data_volume:/app:ro" -v /app/temp -v /app/node_modules actionanand/docker_data_volume
+```
+- `temp` and `feedback` volumes are necessary, as docker needed read-write access for these folders
+
+## ARGuments & ENVironmental variables
+
+Docker supports **build-time ARG**uments and **run-time ENV**ironmental variables.
+
+![image](https://github.com/actionanand/docker_data_volume/assets/46064269/b93157ef-c49e-48cf-8bd6-2b015612b4d4)
+
+### ENV
+
+passing value inside `Dockerfile` as below:
 
 ```Dockerfile
+ENV MY_NAME="John Doe" MY_DOG=Rex\ The\ Dog \
+    MY_CAT=fluffy KEY=VALUE
+    
 VOLUME [ "/app/feedback" ]
 # feedback folder is inside the working dir '/app'.
 # This folder (inside the container) will be mapped somewhere outside the container (in hard disk).
 # This is a type of anonymous volume
 ```
 
-* [Previous Section - Docker Basics](https://github.com/actionanand/docker_playground)
+* You can view the environmental values using `docker inspect`, and change them using `docker run --env <key>=<value>` & `docker run -e <key>=<value>` or using `.env` file as `docker run --env-file ./.env --rm`
+
+```shell
+docker run -d -p 3000:800 --env-file ./.env --rm --name docker_data_volume -v feedback:/app/feedback -v "D:\AR_extra\rnd\docker\docker_data_volume:/app:ro" -v /app/temp -v /app/node_modules actionanand/docker_data_volume
+```
+
+### ARG
+
+`--build-arg ARG_name=value` is used to inject a new argument value during the build time as below:
+
+```bash
+docker build . -t actionanand/docker_data_volume --build-arg DEFAULT_PORT=600
+```
+
+![image](https://github.com/actionanand/docker_data_volume/assets/46064269/8d47c010-b778-4246-b383-34f204bb3f2f)
+
+
+## Associated repos:
+
+1. [Docker Basics](https://github.com/actionanand/docker_playground)
+2. [Managing Data and working with volumes](https://github.com/actionanand/docker_data_volume)

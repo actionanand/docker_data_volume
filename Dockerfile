@@ -8,10 +8,17 @@ RUN npm install
 
 COPY . .
 
-EXPOSE 80
+ARG DEFAULT_PORT=80
 
-# VOLUME [ "/app/feedback" ]
-# feedback folder is inside the working dir '/app'.
+ENV PORT=$DEFAULT_PORT
+
+EXPOSE $PORT
+# EXPOSE ${PORT}
+# EXPOSE 80
+
+# VOLUME [ "/app/temp" ]
+# add this anonymous temp through command, if you bind mount read-only 
+# temp folder is inside the working dir '/app'.
 # This folder (inside the container) will be mapped somewhere outside the container (in hard disk)
 
-CMD [ "node", "server.js" ]
+CMD [ "npm", "start" ]

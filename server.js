@@ -52,4 +52,4 @@ app.get('*', (req, res) => {
   res.redirect('/');
 });
 
-app.listen(80);
+app.listen(process.env.PORT);
