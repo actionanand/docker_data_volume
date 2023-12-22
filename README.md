@@ -4,7 +4,13 @@ Volumes are folders on your host machine had drive which are mounted("made avail
 
 * [Previous Section - Docker Basics](https://github.com/actionanand/docker_playground)
 
+### Docker has two types of external data storage mechanisms
 
+![image](https://github.com/actionanand/docker_data_volume/assets/46064269/97f9b385-9ef6-46c6-8522-c804405d8340)
+
+1. Volumes — Anonymous Volume and Named Volume
+2. Bind Mounts
+   
 ## Info about `Dockerfile`
 
 ```Dockerfile
