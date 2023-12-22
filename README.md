@@ -57,6 +57,15 @@ that (exception: You want to be able to inspect the data written during developm
 In general, **Bind Mounts are a great tool during development** - they're not meant to be used in
 production (since you're container should run isolated from it's host machine).
 
+![image](https://github.com/actionanand/docker_data_volume/assets/46064269/e61615c9-26e1-43f6-8685-36406cbe1181)
+
+![image](https://github.com/actionanand/docker_data_volume/assets/46064269/02e6012b-6095-4f77-9d98-e5efeccb0cd8)
+
+![image](https://github.com/actionanand/docker_data_volume/assets/46064269/b93157ef-c49e-48cf-8bd6-2b015612b4d4)
+
+![image](https://github.com/actionanand/docker_data_volume/assets/46064269/8d47c010-b778-4246-b383-34f204bb3f2f)
+
+
 ## Key Docker Commands
 
 * `docker run -v /path/in/container IMAGE`: Create an **Anonymous Volume** inside a Container
