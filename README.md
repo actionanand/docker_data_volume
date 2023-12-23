@@ -57,7 +57,7 @@ that (exception: You want to be able to inspect the data written during developm
 In general, **Bind Mounts are a great tool during development** - they're not meant to be used in
 production (since you're container should run isolated from it's host machine).
 
-NP: Please check the **File Sharing** Option under **Resources** inside **docker desktop setting** as below to make the bind mount possible:
+NP: Please check the **File Sharing** Option under **Resources** inside **docker desktop setting** as below to make the bind mount possible. Windows user must pay attention for this setting:
 
 ![image](https://github.com/actionanand/docker_data_volume/assets/46064269/7cd1f4f3-5aee-4163-89f2-354f9c495718)
 
@@ -163,6 +163,11 @@ docker build . -t actionanand/docker_data_volume --build-arg DEFAULT_PORT=600
 ```
 
 ![image](https://github.com/actionanand/docker_data_volume/assets/46064269/8d47c010-b778-4246-b383-34f204bb3f2f)
+
+### Output
+![image](https://github.com/actionanand/docker_data_volume/assets/46064269/55929ecd-b6d8-4176-9025-416a75e50bf5)
+![image](https://github.com/actionanand/docker_data_volume/assets/46064269/47600231-a621-4cf9-89be-b6451dc16a42)
+
 
 
 ## Associated repos:
