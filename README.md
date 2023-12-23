@@ -108,6 +108,14 @@ docker run -d -p 3000:80 --rm --name docker_data_volume -v feedback:/app/feedbac
 docker logs containerName_or_ID
 ```
 
+### Bind Mounts - Shortcuts
+
+1. macOS / Linux or WSL2: `-v $(pwd):/app`
+
+2. Windows: `-v "%cd%":/app`
+
+3. with Read-Only access: `-v $(pwd):/app:ro`
+
 ### Read-Only (ro) volume
 
 ```shell
@@ -141,6 +149,11 @@ VOLUME [ "/app/feedback" ]
 docker run -d -p 3000:800 --env-file ./.env --rm --name docker_data_volume -v feedback:/app/feedback -v "D:\AR_extra\rnd\docker\docker_data_volume:/app:ro" -v /app/temp -v /app/node_modules actionanand/docker_data_volume
 ```
 
+In WSL2, mac and Linux
+```bash
+docker run -d -p 3000:800 --env-file ./.env --rm --name docker_data_volume -v feedback:/app/feedback -v $(pwd):/app:ro -v /app/temp -v /app/node_modules actionanand/docker_data_volume
+```
+
 ### ARG
 
 `--build-arg ARG_name=value` is used to inject a new argument value during the build time as below:
@@ -156,3 +169,7 @@ docker build . -t actionanand/docker_data_volume --build-arg DEFAULT_PORT=600
 
 1. [Docker Basics](https://github.com/actionanand/docker_playground)
 2. [Managing Data and working with volumes](https://github.com/actionanand/docker_data_volume)
+
+## Resources
+
+* [Checking if an input is empty with CSS](https://zellwk.com/blog/check-empty-input-css/)

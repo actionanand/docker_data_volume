@@ -78,3 +78,23 @@ button {
   padding: 0.5rem 1.5rem;
   border-radius: 30px;
 }
+
+input, textarea {
+  border: 0.125em solid #ccc; 
+  outline: none;
+}
+
+/* input[type="submit"] {
+  cursor: not-allowed;
+} */
+
+/* Show red borders when filled, but invalid */
+input:not(:placeholder-shown), textarea:not(:placeholder-shown) {
+  border-color: hsl(0, 76%, 50%);
+}
+
+/* Show green borders when valid */
+input:valid, textarea:valid {
+  border-color: hsl(120, 76%, 50%);
+}
+
