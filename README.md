@@ -168,7 +168,9 @@ docker build . -t actionanand/docker_data_volume --build-arg DEFAULT_PORT=600
 ![image](https://github.com/actionanand/docker_data_volume/assets/46064269/55929ecd-b6d8-4176-9025-416a75e50bf5)
 ![image](https://github.com/actionanand/docker_data_volume/assets/46064269/47600231-a621-4cf9-89be-b6451dc16a42)
 
+## Docker Image's public URL
 
+* [actionanand/docker_data_volume](https://hub.docker.com/r/actionanand/docker_data_volume)
 
 ## Associated repos:
 
